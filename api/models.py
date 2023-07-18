@@ -17,7 +17,7 @@ class Articles(models.Model):
         return self.title 
            
 class ContentArticle(models.Model):
-    content_title = models.CharField(max_length=10)
+    content_title = models.CharField(max_length=100)
     content_text = models.TextField()
     
     def __str__(self):

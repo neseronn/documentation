@@ -14,7 +14,7 @@ class GetArticleView(APIView):
             all_content = list()
             for i in dict_article_data['content']:
                 all_content.append(DataContentArticlesSerializer(i).data)
-            datas = DataArticlesSerializer(allData).data
+            datas = DataArticlesSerializer(article_data).data
             datas['content'] = all_content
             return Response(datas)
         else:
