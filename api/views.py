@@ -19,5 +19,5 @@ class GetArticleView(APIView):
             return Response(datas)
         else:
             allData = Articles.objects.all()
-            serializers = DataArticlesSerializer(allData, many=True)
+            serializers = ShortDataArticlesSerializer(allData, many=True)
             return Response(serializers.data)
