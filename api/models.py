@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class Articles(models.Model):
@@ -9,6 +10,7 @@ class Articles(models.Model):
     create_data = models.DateField(auto_now_add=True)
     read_time = models.CharField(max_length=100)
     views = models.IntegerField()
+    tags = ArrayField(models.CharField(max_length=50), null=True)
     content = models.ManyToManyField('ContentArticle')
 
     def __str__(self):
