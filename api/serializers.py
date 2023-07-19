@@ -19,6 +19,7 @@ class DataArticlesSerializer(serializers.Serializer):
     tags = serializers.ListField(child=serializers.CharField())
     
 class ShortDataArticlesSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
     title = serializers.CharField(max_length=150)
     decription = serializers.CharField()
     category = serializers.IntegerField()
