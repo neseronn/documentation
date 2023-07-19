@@ -1,0 +1,52 @@
+.articleItem {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.title {
+  text-transform: uppercase;
+  color: #0764d5;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.6px;
+  letter-spacing: 0.7px;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  letter-spacing: 0.7px;
+  margin-bottom: 15px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+}
+
+.bottom p {
+  color: #1f1f1f;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.bottom p::before {
+  content: url('../assets/icon-park-outline_like.svg');
+  position: relative;
+  float: left;
+  margin: 0 5px 0 0;
+  width: 22px;
+  height: 22px;
+}
