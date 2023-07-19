@@ -6,7 +6,9 @@ from .models import *
 from collections import OrderedDict
 from django.forms.models import model_to_dict
 # Create your views here.
+from rest_framework.permissions import AllowAny
 class GetArticleView(APIView):
+    permission_classes = (AllowAny,)
     def get(self, request, id=None, format=None):
         if id != None:
             article_data = Articles.objects.get(id=id)
