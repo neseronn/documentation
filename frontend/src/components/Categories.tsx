@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import style from '../styles/categories.module.css';
 
 // {activeCategory,items,onClickCategory,}
@@ -22,28 +22,34 @@ import style from '../styles/categories.module.css';
 </ul>; */
 }
 
-const categoryNames = [
-  'FTP',
-  'SSH',
-  'Веб-приложения',
-  'Сервисы',
-  'Сайты',
-  'VPS',
-  'Домены',
-  'Другое',
-  'Почта',
-  'Диагностика проблем',
-];
+interface ICategoriesProps {
+  activeCategory: number | null;
+  onClickCategory: (i: number | null) => void;
+  categories: string[];
+}
 
-const Categories = React.memo(function Categories() {
+const Categories: FC<ICategoriesProps> = React.memo(function Categories({
+  activeCategory,
+  onClickCategory,
+  categories,
+}) {
   return (
     <div className={style.categories}>
       <h3>Категории:</h3>
       <ul>
-        <li className={style.active}>Все статьи</li>
+        <li
+          className={activeCategory === null ? style.active : ''}
+          onClick={() => onClickCategory(null)}>
+          Все статьи
+        </li>
 
-        {categoryNames.map((category) => (
-          <li key={category}>{category}</li>
+        {categories.map((category, index) => (
+          <li
+            key={category}
+            className={activeCategory === index ? style.active : ''}
+            onClick={() => onClickCategory(index)}>
+            {category}
+          </li>
         ))}
       </ul>
     </div>

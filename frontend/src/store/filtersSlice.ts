@@ -9,7 +9,7 @@ export const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    setCategory: (state, { payload }: PayloadAction<number>) => {
+    setCategory: (state, { payload }: PayloadAction<number | null>) => {
       state.category = payload;
     },
     toggleTag: (state, { payload }: PayloadAction<string>) => {
