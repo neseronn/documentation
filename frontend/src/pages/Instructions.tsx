@@ -1,21 +1,21 @@
-import { useDispatch } from 'react-redux';
 import ArticleItem from '../components/ArticleItem';
 import Categories from '../components/Categories';
-import { fetchArticles } from '../store/articlesSlice';
 import { useEffect } from 'react';
-import { AppDispatch } from '../store/store';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import Tags from '../components/Tags';
+import { useActions } from '../hooks/useActions';
 
 const Instructions: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles
   );
 
+  const { fetchArticles } = useActions();
+
   useEffect(() => {
-    dispatch(fetchArticles());
-  }, [dispatch]);
+    fetchArticles();
+    console.log('get articles');
+  }, []);
 
   return (
     <>
