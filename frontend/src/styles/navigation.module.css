@@ -1,0 +1,39 @@
+.nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo p {
+  text-transform: uppercase;
+  color: #000;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1.7px;
+}
+
+.tools {
+  display: flex;
+  align-self: start;
+  justify-content: space-between;
+}
+
+.tools > * {
+  color: #868686;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 19px;
+  letter-spacing: 0.65px;
+  margin-left: 15px;
+}
+
+.activeTool {
+  color: #000;
+  font-weight: 700;
+}

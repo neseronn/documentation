@@ -1,7 +1,7 @@
 import style from '../styles/button.module.css';
 
 interface IButtonProps {
-  onClick: () => {};
+  onClick: () => void;
   children: string;
 }
 
