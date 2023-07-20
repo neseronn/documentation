@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../styles/categories.module.css'
+import style from '../styles/categories.module.css';
 
 // {activeCategory,items,onClickCategory,}
 
@@ -43,7 +43,7 @@ const Categories = React.memo(function Categories() {
         <li className={style.active}>Все статьи</li>
 
         {categoryNames.map((category) => (
-          <li>{category}</li>
+          <li key={category}>{category}</li>
         ))}
       </ul>
     </div>
