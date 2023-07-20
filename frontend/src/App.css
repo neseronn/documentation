@@ -5,9 +5,12 @@
   display: flex;
 }
 
+.wrapper {
+  max-width: 1144px;
+}
+
 .content {
   display: flex;
-  width: 62%;
   margin: 0 auto;
 }
 
@@ -22,6 +25,7 @@
 
 .right {
   flex-basis: 80%;
+  min-width: 80;
 }
 
 .right h1 {
@@ -50,5 +54,5 @@
 }
 
 .tag-btn:hover {
-  background: rgba(186, 187, 188, 0.753)
+  background: rgba(186, 187, 188, 0.753);
 }

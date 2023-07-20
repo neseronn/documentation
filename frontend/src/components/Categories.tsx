@@ -1,27 +1,6 @@
 import React, { FC } from 'react';
 import style from '../styles/categories.module.css';
 
-// {activeCategory,items,onClickCategory,}
-
-{
-  /* <ul>
-  <li
-    className={activeCategory === null ? 'active' : ''}
-    onClick={() => onClickCategory(null)}>
-    Все статьи
-  </li>
-  {items &&
-    items.map((name, index) => (
-      <li
-        className={activeCategory === index ? 'active' : ''}
-        onClick={() => onClickCategory(index)}
-        key={`${name}_${index}`}>
-        {name}
-      </li>
-    ))}
-</ul>; */
-}
-
 interface ICategoriesProps {
   activeCategory: number | null;
   onClickCategory: (i: number | null) => void;

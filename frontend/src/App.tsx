@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Navigation />
-      <div className='content'>
+      <div className='content wrapper'>
         <Routes>
           <Route path='/' element={<Instructions />} />
         </Routes>

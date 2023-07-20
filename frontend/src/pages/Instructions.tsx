@@ -22,16 +22,14 @@ const Instructions: React.FC = () => {
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles
   );
-  const { category } = useTypedSelector(
-    (state) => state.filters
-  );
+  const { category } = useTypedSelector((state) => state.filters);
 
   const { fetchArticles, setCategory } = useActions();
 
   useEffect(() => {
-    fetchArticles();
+    fetchArticles(category);
     console.log('get articles');
-  }, []);
+  }, [category]);
 
   const onSelectCategory = React.useCallback((i: number | null) => {
     setCategory(i);

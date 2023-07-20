@@ -6,11 +6,15 @@ const initialState = {
   error: null,
 };
 
-export const fetchArticles = createAsyncThunk<IArticle[]>(
+export const fetchArticles = createAsyncThunk<IArticle[], number | null>(
   'articles/fetchArticles',
-  async (_, thunkApi) => {
+  async (category, thunkApi) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/articles/`);
+      const response = await fetch(
+        `http://127.0.0.1:8000/articles/?${
+          category !== null ? `category=${category}` : ''
+        }`
+      );
       const data = await response.json();
       return data;
     } catch (error: any) {
