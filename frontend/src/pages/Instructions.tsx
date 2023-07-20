@@ -7,7 +7,7 @@ import { AppDispatch } from '../store/store';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import Tags from '../components/Tags';
 
-const Instructions = () => {
+const Instructions: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles

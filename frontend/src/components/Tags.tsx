@@ -2,7 +2,7 @@ import Tag from './Tag';
 
 const tags = ['CMS', 'Bitrix', 'Диагностика', 'DNS', 'FTP', 'Crontab'];
 
-const Tags = () => {
+const Tags: React.FC = () => {
   return (
     <div>
       <h3>Тэги:</h3>
