@@ -1,14 +1,30 @@
 #root {
   max-width: 1920px;
   margin: 0 auto;
-  /* padding: 2rem; */
-  /* text-align: center; */
   position: relative;
   display: flex;
-  justify-content: space-between;
 }
 
-h1 {
+.content {
+  display: flex;
+  width: 62%;
+  margin: 0 auto;
+}
+
+.left {
+  flex-basis: 20%;
+}
+
+.left h3 {
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.right {
+  flex-basis: 80%;
+}
+
+.right h1 {
   color: #1f1f1f;
   font-size: 60px;
   font-weight: 800;
@@ -16,12 +32,23 @@ h1 {
   margin-bottom: 45px;
 }
 
-.filters {
-  min-width: 175px;
-  width: 15%;
+.tag-list {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
-.content {
-  min-width: 875px;
-  width: 80%;
+.tag-btn {
+  cursor: pointer;
+  transition: 0.4s ease-out;
+}
+
+.tag-btn:active {
+  color: #ffffff;
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+}
+
+.tag-btn:hover {
+  background: rgba(186, 187, 188, 0.753)
 }
