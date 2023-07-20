@@ -33,6 +33,11 @@
   display: flex;
 }
 
+.right_bottom {
+  display: flex;
+  column-gap: 27px;
+}
+
 .bottom p {
   color: #1f1f1f;
   font-size: 13px;
@@ -42,7 +47,7 @@
   align-items: center;
 }
 
-.bottom p::before {
+.likes::before {
   content: url('../assets/icon-park-outline_like.svg');
   position: relative;
   float: left;

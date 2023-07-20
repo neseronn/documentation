@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import '../styles/instructions.module.css';
 import ArticleItem from '../components/ArticleItem';
 import Categories from '../components/Categories';
 import { fetchArticles } from '../store/articlesSlice';

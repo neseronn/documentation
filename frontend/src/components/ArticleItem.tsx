@@ -16,7 +16,10 @@ const ArticleItem: FC<IArticleItemProps> = ({ article }: IArticleItemProps) => {
           {article.tags &&
             article.tags.map((tag) => <Tag key={tag} tagName={tag} />)}
         </div>
-        <p>{article.likes}</p>
+        <div className={style.right_bottom}>
+          <p>{article.create_data}</p>
+          <p className={style.likes}>{article.likes}</p>
+        </div>
       </div>
     </div>
   );

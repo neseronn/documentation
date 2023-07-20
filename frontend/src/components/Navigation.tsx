@@ -3,7 +3,6 @@ import style from '../styles/navigation.module.css';
 import logo from '../assets/logo.svg';
 import menu from '../assets/menu.svg';
 
-
 const Navigation = () => {
   return (
     <div className={style.nav}>
