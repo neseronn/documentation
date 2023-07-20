@@ -1,19 +1,22 @@
 import { FC } from 'react';
 import Tag from './Tag';
-import style from '../styles/article-item.module.css'
+import style from '../styles/article-item.module.css';
 
-interface IArticleItem {
-  tags: string[];
+interface IArticleItemProps {
+  article: IArticle;
 }
 
-const ArticleItem: FC<IArticleItem> = ({ tags }) => {
+const ArticleItem: FC<IArticleItemProps> = ({ article }: IArticleItemProps) => {
   return (
     <div className={style.articleItem}>
-      <h3 className={style.title}>Волшебный файл .htaccess</h3>
-      <p className={style.description}>.htaccess — файл дополнительной конфигурации веб-сервера Apache, а также подобных ему серверов. Позволяет задавать большое количество дополнительных параметров и разрешений для работы веб-сервера у отдельных пользователей.</p>
+      <h3 className={style.title}>{article.title}</h3>
+      <p className={style.description}>{article.decription}</p>
       <div className={style.bottom}>
-        <div className={style.tags}>{tags && tags.map((tag) => <Tag key={tag} tagName={tag} />)}</div>
-        <p>89523</p>
+        <div className={style.tags}>
+          {article.tags &&
+            article.tags.map((tag) => <Tag key={tag} tagName={tag} />)}
+        </div>
+        <p>{article.likes}</p>
       </div>
     </div>
   );
