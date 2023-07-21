@@ -29,7 +29,7 @@ const Instructions: React.FC = () => {
   const { fetchArticles, setCategory, toggleTag } = useActions();
 
   useEffect(() => {
-    fetchArticles(category);
+    fetchArticles({ category, tags });
     console.log('get articles');
   }, [category, tags]);
 

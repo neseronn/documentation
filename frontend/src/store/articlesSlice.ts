@@ -6,14 +6,20 @@ const initialState = {
   error: null,
 };
 
-export const fetchArticles = createAsyncThunk<IArticle[], number | null>(
+interface IParams {
+  category: number | null;
+  tags: string[];
+}
+
+export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   'articles/fetchArticles',
-  async (category, thunkApi) => {
+  async (args, thunkApi) => {
+    const { category, tags } = args;
     try {
       const response = await fetch(
         `http://127.0.0.1:8000/articles/?${
           category !== null ? `category=${category}` : ''
-        }`
+        }&${tags.length > 0 ? `tags=` + tags.join(',') : ''}`
       );
       const data = await response.json();
       return data;
