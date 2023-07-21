@@ -9,3 +9,8 @@
   border-radius: 50px;
   margin-right: 10px;
 }
+
+.active {
+  color: #ffffff;
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+}

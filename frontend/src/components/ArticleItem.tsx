@@ -14,7 +14,9 @@ const ArticleItem: FC<IArticleItemProps> = ({ article }: IArticleItemProps) => {
       <div className={style.bottom}>
         <div className={style.tags}>
           {article.tags &&
-            article.tags.map((tag) => <Tag key={tag} tagName={tag} />)}
+            article.tags.map((tag) => (
+              <Tag key={tag} tagName={tag} isBtn={false} isActive={false} />
+            ))}
         </div>
         <div className={style.right_bottom}>
           <p>{article.create_data}</p>

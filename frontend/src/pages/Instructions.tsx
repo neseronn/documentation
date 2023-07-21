@@ -18,21 +18,27 @@ const categoryNames = [
   'Диагностика проблем',
 ];
 
+const tagNames = ['CMS', 'Bitrix', 'Диагностика', 'DNS', 'FTP', 'Crontab'];
+
 const Instructions: React.FC = () => {
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles
   );
-  const { category } = useTypedSelector((state) => state.filters);
+  const { category, tags } = useTypedSelector((state) => state.filters);
 
-  const { fetchArticles, setCategory } = useActions();
+  const { fetchArticles, setCategory, toggleTag } = useActions();
 
   useEffect(() => {
     fetchArticles(category);
     console.log('get articles');
-  }, [category]);
+  }, [category, tags]);
 
   const onSelectCategory = React.useCallback((i: number | null) => {
     setCategory(i);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleTagClick = React.useCallback((tag: string) => {
+    toggleTag(tag);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -43,7 +49,7 @@ const Instructions: React.FC = () => {
           onClickCategory={onSelectCategory}
           categories={categoryNames}
         />
-        <Tags />
+        <Tags tags={tagNames} onClickTag={handleTagClick} activeTags={tags} />
       </div>
 
       <div className='right'>

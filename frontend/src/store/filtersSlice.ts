@@ -13,9 +13,12 @@ export const filtersSlice = createSlice({
       state.category = payload;
     },
     toggleTag: (state, { payload }: PayloadAction<string>) => {
-      state.tags.includes(payload)
-        ? state.tags.push(payload)
-        : (state.tags = state.tags.filter((tag) => tag !== payload));
+      if (state.tags.length < 3 && !state.tags.includes(payload)) {
+        state.tags.push(payload);
+        console.log(state.tags);
+      } else if (state.tags.includes(payload)) {
+        state.tags = state.tags.filter((tag) => tag !== payload);
+      }
     },
   },
 });

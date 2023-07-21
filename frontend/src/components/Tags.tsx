@@ -1,14 +1,26 @@
 import Tag from './Tag';
 
-const tags = ['CMS', 'Bitrix', 'Диагностика', 'DNS', 'FTP', 'Crontab'];
+interface ITagsProps {
+  tags: string[];
+  activeTags: string[];
+  onClickTag: (tag: string) => void;
+}
 
-const Tags: React.FC = () => {
+const Tags: React.FC<ITagsProps> = ({ tags, activeTags, onClickTag }) => {
+  const isTagActive = (tag: string) => activeTags.includes(tag);
+
   return (
     <div>
       <h3>Тэги:</h3>
       <div className='tag-list'>
         {tags.map((tag) => (
-          <Tag key={tag} tagName={tag} isBtn={true}/>
+          <Tag
+            key={tag}
+            tagName={tag}
+            isBtn={true}
+            isActive={isTagActive(tag)}
+            onClickTag={onClickTag}
+          />
         ))}
       </div>
     </div>
