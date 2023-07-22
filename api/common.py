@@ -1,4 +1,5 @@
 from django.forms.models import model_to_dict
+from datetime import datetime
 
 from .serializers import *
 from .models import Articles
@@ -38,4 +39,6 @@ def responseAllDataWithFilters(category, tags, search, sort):
         return responseData
     
     serializers = ShortDataArticlesSerializer(allData, many=True)
+    for i in serializers.data:
+        i['create_data'] = (datetime.strptime(i['create_data'], "%Y-%m-%d").strftime("%d.%m.%Y"))
     return serializers.data
