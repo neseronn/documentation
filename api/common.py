@@ -9,6 +9,8 @@ def is_sublist(sublist, mainlist):
 
 def responseDataAboutOneRecord(id):
     article_data = Articles.objects.get(id=id)
+    article_data.views += 1
+    article_data.save()
     dict_article_data = model_to_dict(article_data)
     all_content = list()
     
