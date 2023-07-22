@@ -16,6 +16,7 @@ def responseDataAboutOneRecord(id):
         all_content.append(DataContentArticlesSerializer(i).data)
         
     datas = DataArticlesSerializer(article_data).data
+    datas['create_data'] = (datetime.strptime(datas['create_data'], "%Y-%m-%d").strftime("%d.%m.%Y"))
     datas['content'] = all_content
     return datas
 
