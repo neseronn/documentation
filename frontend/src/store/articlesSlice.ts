@@ -1,7 +1,15 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState = {
-  articles: [] as IArticle[],
+interface IArticlesState {
+  articles: IArticle[];
+  selectedArticle: IArticle | null;
+  isLoading: boolean;
+  error: null | string;
+}
+
+const initialState: IArticlesState = {
+  articles: [],
+  selectedArticle: null,
   isLoading: false,
   error: null,
 };
@@ -29,6 +37,19 @@ export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   }
 );
 
+export const fetchArticleById = createAsyncThunk<IArticle, number>(
+  'articles/fetchArticleById',
+  async (id, thunkApi) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/articles/${id}`);
+      const data = await response.json();
+      return data;
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const articlesSlice = createSlice({
   name: 'articles',
   initialState,
@@ -47,8 +68,23 @@ export const articlesSlice = createSlice({
       )
       .addCase(fetchArticles.rejected, (state, action: any) => {
         state.isLoading = false;
-        state.error = action.payload.error;
+        state.error = action.payload;
         state.articles = [] as IArticle[];
+      })
+      .addCase(fetchArticleById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        fetchArticleById.fulfilled,
+        (state, action: PayloadAction<IArticle>) => {
+          state.isLoading = false;
+          state.selectedArticle = action.payload;
+        }
+      )
+      .addCase(fetchArticleById.rejected, (state, action: any) => {
+        state.isLoading = false;
+        state.error = action.payload;
+        state.selectedArticle = {} as IArticle;
       });
   },
 });
