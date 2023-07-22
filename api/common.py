@@ -13,9 +13,12 @@ def responseDataAboutOneRecord(id):
     article_data.save()
     dict_article_data = model_to_dict(article_data)
     all_content = list()
-    
+    buf = 0
     for i in dict_article_data['content']:
-        all_content.append(DataContentArticlesSerializer(i).data)
+        data = DataContentArticlesSerializer(i).data
+        data["id"] = buf
+        all_content.append(data)
+        buf += 1
         
     datas = DataArticlesSerializer(article_data).data
     datas['create_data'] = (datetime.strptime(datas['create_data'], "%Y-%m-%d").strftime("%d.%m.%Y"))
