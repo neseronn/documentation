@@ -12,6 +12,29 @@
 .content {
   display: flex;
   margin: 0 auto;
+  flex-direction: column;
+}
+
+h1 {
+  color: #1f1f1f;
+  font-size: 60px;
+  font-weight: 800;
+  line-height: normal;
+}
+
+/* .top {
+  display: block;
+  width: 100%;
+} */
+
+.block {
+  margin-top: 60px;
+  display: flex;
+}
+
+.searching {
+  align-items: center;
+  column-gap: 25px;
 }
 
 .left {
@@ -41,6 +64,7 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 10px;
+  column-gap: 10px;
 }
 
 .tag-btn {

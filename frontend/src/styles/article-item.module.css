@@ -12,6 +12,12 @@
   line-height: 19.6px;
   letter-spacing: 0.7px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: #489bff;
+  transition: 0.2s ease-in-out;
 }
 
 .description {
@@ -31,6 +37,7 @@
 
 .tags {
   display: flex;
+  column-gap: 10px;
 }
 
 .right_bottom {

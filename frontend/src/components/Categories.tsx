@@ -17,7 +17,9 @@ const Categories: FC<ICategoriesProps> = React.memo(function Categories({
       <h3>Категории:</h3>
       <ul>
         <li
-          className={activeCategory === null ? style.active : ''}
+          className={
+            style.li + ' ' + (activeCategory === null ? style.active : '')
+          }
           onClick={() => onClickCategory(null)}>
           Все статьи
         </li>
@@ -25,7 +27,9 @@ const Categories: FC<ICategoriesProps> = React.memo(function Categories({
         {categories.map((category, index) => (
           <li
             key={category}
-            className={activeCategory === index ? style.active : ''}
+            className={
+              style.li + ' ' + (activeCategory === index ? style.active : '')
+            }
             onClick={() => onClickCategory(index)}>
             {category}
           </li>

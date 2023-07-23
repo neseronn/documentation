@@ -1,0 +1,29 @@
+.li {
+  padding: 10px;
+  color: #1f1f1f;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.65px;
+  cursor: pointer;
+  width: 163px;
+  border-left: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px 25px 0;
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  transition: top 0.3s;
+}
+
+.active {
+  border-left: 1px solid #005ed0;
+}
+
+.li:hover {
+  color: #005ed0;
+}

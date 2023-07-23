@@ -1,0 +1,71 @@
+.search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.icon {
+  z-index: 2;
+  background-image: url('../assets/search.svg ');
+  position: absolute;
+  background-size: 20px;
+  top: 15px;
+  left: 1rem;
+  pointer-events: none;
+}
+
+/* .input:focus {
+  z-index: 3;
+  background-image: url('../assets/search-blue.svg');
+} */
+
+.input::before {
+  z-index: 2;
+  content: url('../assets/search.svg');
+  position: absolute;
+  top: 15px;
+  left: 1rem;
+  pointer-events: none;
+}
+
+.input:focus::before > {
+  z-index: 3;
+  content: url('../assets/search-blue.svg');
+}
+
+/* input */
+
+.input {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 1rem 1rem 1rem 2.5rem;
+  color: #a4a5a7;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #e6eaed;
+  line-height: 19.2px;
+  display: inline-block;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: rgba(164, 165, 167, 1);
+}
+.input:hover {
+  background-color: #e6eaed;
+  outline: 1px solid #004aa3;
+}
+
+.input:focus {
+  background-color: #e6eaed;
+  outline: 1px solid #004aa3;
+  color: #005ed0;
+}
+.input:focus::placeholder {
+  color: #005ed0;
+}

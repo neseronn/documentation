@@ -1,0 +1,69 @@
+.sort {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.sort_popup {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  background-color: rgb(244, 244, 250);
+  box-shadow: 0px 1.9578888416290283px 2.7479140758514404px 0px
+      rgba(0, 0, 0, 0.02),
+    0px 4.951647758483887px 6.949680805206299px 0px rgba(0, 0, 0, 0.03),
+    0px 10.100896835327148px 14.176697731018066px 0px rgba(0, 0, 0, 0.04),
+    0px 20.805938720703125px 29.201316833496094px 0px rgba(0, 0, 0, 0.05),
+    0px 57px 80px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 5px;
+  overflow: hidden;
+  width: max-content;
+}
+
+.sort_popup ul {
+  overflow: hidden;
+}
+
+.li {
+  transition: 0.2s ease-in-out;
+  padding: 10px 60px;
+  cursor: pointer;
+  background-color: rgb(244, 244, 250);
+  /* width: 100%; */
+}
+
+.li:hover {
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.li.active:hover {
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+  color: #ffffff;
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.active {
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+  color: #ffffff;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icon path {
+  transition: 0.3s ease-in-out;
+}
+
+.icon:hover path {
+  fill: #489bff;
+}
+
+.focus path {
+  fill: #004aa3;
+}
