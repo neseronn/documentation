@@ -10,8 +10,8 @@ function App() {
       <Navigation />
       <div className='content wrapper'>
         <Routes>
-          <Route path='/' element={<Instructions />} />
-          <Route path='/:id' element={<ArticlePage />} />
+          <Route path='/articles' element={<Instructions />} />
+          <Route path='/articles/:id' element={<ArticlePage />} />
         </Routes>
       </div>
     </div>

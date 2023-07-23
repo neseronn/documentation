@@ -22,11 +22,6 @@ h1 {
   line-height: normal;
 }
 
-/* .top {
-  display: block;
-  width: 100%;
-} */
-
 .block {
   margin-top: 60px;
   display: flex;

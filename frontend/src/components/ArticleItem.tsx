@@ -10,7 +10,7 @@ interface IArticleItemProps {
 const ArticleItem: FC<IArticleItemProps> = ({ article }: IArticleItemProps) => {
   return (
     <div className={style.articleItem}>
-      <Link to={`/${article.id}`} className={style.title}>
+      <Link to={`/articles/${article.id}`} className={style.title}>
         {article.title}
       </Link>
       <p className={style.description}>{article.decription}</p>

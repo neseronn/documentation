@@ -1,13 +1,15 @@
 import style from '../styles/button.module.css';
 
 interface IButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   children: string;
+  isActive: boolean;
 }
 
-const Button: React.FC<IButtonProps> = ({ onClick, children }) => {
+const Button: React.FC<IButtonProps> = ({ children, isActive }) => {
   return (
-    <button onClick={onClick} className={style.button}>
+    <button
+      className={style.button + ' ' + (isActive ? `${style.active}` : '')}>
       {children}
     </button>
   );
