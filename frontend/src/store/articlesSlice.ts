@@ -18,19 +18,20 @@ interface IParams {
   category: number | null;
   tags: string[];
   search: string;
+  sort: string;
 }
 
 export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   'articles/fetchArticles',
   async (args, thunkApi) => {
-    const { category, tags, search } = args;
+    const { category, tags, search, sort } = args;
     try {
       const response = await fetch(
         `http://127.0.0.1:8000/api/articles/?${
           category !== null ? `category=${category}` : ''
         }&${tags.length > 0 ? `tags=` + tags.join(',') : ''}&${
           search ? `search=` + search.trim() : ''
-        }`
+        }&${sort ? `sort=${sort}` : ''}`
       );
       const data = await response.json();
       return data;

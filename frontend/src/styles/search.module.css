@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   box-sizing: border-box;
+  width: 100%;
 }
 
 .icon {
@@ -49,6 +50,7 @@
   background-color: #e6eaed;
   line-height: 19.2px;
   display: inline-block;
+  width: 100%;
 }
 
 .input::placeholder {

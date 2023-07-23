@@ -4,6 +4,7 @@ const initialState: IFiltersState = {
   category: null,
   tags: [],
   searchQuery: '',
+  sort: 'create_data',
 };
 
 export const filtersSlice = createSlice({
@@ -23,6 +24,9 @@ export const filtersSlice = createSlice({
     },
     setSearchQuery: (state, action: PayloadAction<string>) => {
       state.searchQuery = action.payload;
+    },
+    setSort: (state, action: PayloadAction<string>) => {
+      state.sort = action.payload;
     },
   },
 });

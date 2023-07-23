@@ -19,7 +19,6 @@ const Search: React.FC<ISearchProps> = ({ onChange, search }) => {
         value={search}
         onChange={(e) => onChange(e)}
       />
-      <div>...</div>
     </div>
   );
 };

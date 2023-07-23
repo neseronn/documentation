@@ -32,6 +32,11 @@ h1 {
   display: flex;
 }
 
+.searching {
+  align-items: center;
+  column-gap: 25px;
+}
+
 .left {
   flex-basis: 20%;
 }

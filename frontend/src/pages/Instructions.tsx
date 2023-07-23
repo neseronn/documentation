@@ -5,6 +5,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import Tags from '../components/Tags';
 import { useActions } from '../hooks/useActions';
 import Search from '../components/Search';
+import SortPopup from './../components/SortPopup';
 
 const categoryNames = [
   'FTP',
@@ -21,21 +22,27 @@ const categoryNames = [
 
 const tagNames = ['CMS', 'Bitrix', 'Диагностика', 'DNS', 'FTP', 'Crontab'];
 
+const sorts: ISort[] = [
+  { name: 'По дате публикации', type: 'create_data' },
+  { name: 'По количеству просмотров', type: 'views' },
+  { name: 'По количеству добавлений', type: 'likes' },
+];
+
 const Instructions: React.FC = () => {
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles
   );
-  const { category, tags, searchQuery } = useTypedSelector(
+  const { category, tags, searchQuery, sort } = useTypedSelector(
     (state) => state.filters
   );
 
-  const { fetchArticles, setCategory, toggleTag, setSearchQuery } =
+  const { fetchArticles, setCategory, toggleTag, setSearchQuery, setSort } =
     useActions();
 
   useEffect(() => {
-    fetchArticles({ category, tags, search: searchQuery });
+    fetchArticles({ category, tags, search: searchQuery, sort });
     console.log('get articles');
-  }, [category, tags, searchQuery]);
+  }, [category, tags, searchQuery, sort]);
 
   const onSelectCategory = React.useCallback((i: number | null) => {
     setCategory(i);
@@ -45,13 +52,20 @@ const Instructions: React.FC = () => {
     toggleTag(tag);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const onSelectSort = React.useCallback((sort: string) => {
+    setSort(sort);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 
   return (
     <>
-      <Search onChange={handleSearchChange} search={searchQuery} />
+      <div className='block searching'>
+        <Search onChange={handleSearchChange} search={searchQuery} />
+        <SortPopup sorts={sorts} activeSort={sort} onClickSort={onSelectSort} />
+      </div>
       <div className='block'>
         <div className='left'>
           <Categories
