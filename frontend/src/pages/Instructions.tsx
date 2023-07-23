@@ -43,30 +43,32 @@ const Instructions: React.FC = () => {
 
   return (
     <>
-      <div className='left'>
-        <Categories
-          activeCategory={category}
-          onClickCategory={onSelectCategory}
-          categories={categoryNames}
-        />
-        <Tags tags={tagNames} onClickTag={handleTagClick} activeTags={tags} />
-      </div>
+      <div className='block'>
+        <div className='left'>
+          <Categories
+            activeCategory={category}
+            onClickCategory={onSelectCategory}
+            categories={categoryNames}
+          />
+          <Tags tags={tagNames} onClickTag={handleTagClick} activeTags={tags} />
+        </div>
 
-      <div className='right'>
-        <div className='articles-list'>
-          <h1>Нуждаются в популяризации</h1>
+        <div className='right'>
+          <div className='articles-list'>
+            <h1>Нуждаются в популяризации</h1>
 
-          {isLoading ? (
-            <div>LOADING...</div>
-          ) : error ? (
-            <div>{error}</div>
-          ) : articles ? (
-            articles.map((article) => (
-              <ArticleItem article={article} key={article.id} />
-            ))
-          ) : (
-            <p>Статьи не найдены</p>
-          )}
+            {isLoading ? (
+              <div>LOADING...</div>
+            ) : error ? (
+              <div>{error}</div>
+            ) : articles ? (
+              articles.map((article) => (
+                <ArticleItem article={article} key={article.id} />
+              ))
+            ) : (
+              <p>Статьи не найдены</p>
+            )}
+          </div>
         </div>
       </div>
     </>

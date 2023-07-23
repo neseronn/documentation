@@ -1,0 +1,75 @@
+.description {
+  color: #000;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.6px;
+  letter-spacing: 0.7px;
+  margin: 15px 0 25px 0;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  column-gap: 10px;
+}
+
+.right_bottom {
+  display: flex;
+  column-gap: 15px;
+}
+
+.bottom p {
+  color: #1f1f1f;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.read::before {
+  content: url('../assets/ic_round-access-time-filled.svg');
+}
+.likes::before {
+  content: url('../assets/icon-park-outline_like.svg');
+}
+.views::before {
+  content: url('../assets/carbon_view-filled.svg');
+}
+
+p::before {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  float: left;
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  margin-top: 1px;
+}
+
+.content_title {
+  color: #0764d5;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.content_description {
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  letter-spacing: 0.7px;
+  margin-bottom: 15px;
+  font-style: normal;
+}
