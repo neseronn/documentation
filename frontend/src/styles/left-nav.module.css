@@ -1,0 +1,31 @@
+li {
+  padding: 10px;
+  color: #1f1f1f;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.65px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 163px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25px 25px 0;
+  flex: 1;
+  position: sticky;
+  top: 20px;
+}
+
+.active {
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+}
+
+.hover {
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
+}
