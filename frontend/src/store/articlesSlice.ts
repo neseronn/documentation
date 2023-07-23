@@ -17,17 +17,20 @@ const initialState: IArticlesState = {
 interface IParams {
   category: number | null;
   tags: string[];
+  search: string;
 }
 
 export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   'articles/fetchArticles',
   async (args, thunkApi) => {
-    const { category, tags } = args;
+    const { category, tags, search } = args;
     try {
       const response = await fetch(
         `http://127.0.0.1:8000/api/articles/?${
           category !== null ? `category=${category}` : ''
-        }&${tags.length > 0 ? `tags=` + tags.join(',') : ''}`
+        }&${tags.length > 0 ? `tags=` + tags.join(',') : ''}&${
+          search ? `search=` + search.trim() : ''
+        }`
       );
       const data = await response.json();
       return data;
@@ -37,18 +40,18 @@ export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   }
 );
 
-export const fetchArticleById = createAsyncThunk<IArticleFull, string | undefined>(
-  'articles/fetchArticleById',
-  async (id, thunkApi) => {
-    try {
-      const response = await fetch(`http://127.0.0.1:8000/api/articles/${id}`);
-      const data = await response.json();
-      return data;
-    } catch (error: any) {
-      return thunkApi.rejectWithValue(error.message);
-    }
+export const fetchArticleById = createAsyncThunk<
+  IArticleFull,
+  string | undefined
+>('articles/fetchArticleById', async (id, thunkApi) => {
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/api/articles/${id}`);
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    return thunkApi.rejectWithValue(error.message);
   }
-);
+});
 
 export const articlesSlice = createSlice({
   name: 'articles',

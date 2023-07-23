@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import Tags from '../components/Tags';
 import { useActions } from '../hooks/useActions';
+import Search from '../components/Search';
 
 const categoryNames = [
   'FTP',
@@ -24,14 +25,17 @@ const Instructions: React.FC = () => {
   const { articles, error, isLoading } = useTypedSelector(
     (state) => state.articles
   );
-  const { category, tags } = useTypedSelector((state) => state.filters);
+  const { category, tags, searchQuery } = useTypedSelector(
+    (state) => state.filters
+  );
 
-  const { fetchArticles, setCategory, toggleTag } = useActions();
+  const { fetchArticles, setCategory, toggleTag, setSearchQuery } =
+    useActions();
 
   useEffect(() => {
-    fetchArticles({ category, tags });
+    fetchArticles({ category, tags, search: searchQuery });
     console.log('get articles');
-  }, [category, tags]);
+  }, [category, tags, searchQuery]);
 
   const onSelectCategory = React.useCallback((i: number | null) => {
     setCategory(i);
@@ -41,8 +45,13 @@ const Instructions: React.FC = () => {
     toggleTag(tag);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <>
+      <Search onChange={handleSearchChange} search={searchQuery} />
       <div className='block'>
         <div className='left'>
           <Categories

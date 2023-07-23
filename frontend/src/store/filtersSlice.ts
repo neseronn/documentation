@@ -3,6 +3,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 const initialState: IFiltersState = {
   category: null,
   tags: [],
+  searchQuery: '',
 };
 
 export const filtersSlice = createSlice({
@@ -19,6 +20,9 @@ export const filtersSlice = createSlice({
       } else if (state.tags.includes(payload)) {
         state.tags = state.tags.filter((tag) => tag !== payload);
       }
+    },
+    setSearchQuery: (state, action: PayloadAction<string>) => {
+      state.searchQuery = action.payload;
     },
   },
 });
