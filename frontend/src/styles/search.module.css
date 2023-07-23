@@ -9,34 +9,23 @@
 
 .icon {
   z-index: 2;
-  background-image: url('../assets/search.svg ');
+  width: 20px;
+  height: 20px;
+  background-size: 20px 20px;
   position: absolute;
-  background-size: 20px;
   top: 15px;
   left: 1rem;
   pointer-events: none;
+  transition: 0.3s ease-in-out;
 }
 
-/* .input:focus {
-  z-index: 3;
+.gray_icon {
+  background-image: url('../assets/search.svg');
+}
+
+.blue_icon {
   background-image: url('../assets/search-blue.svg');
-} */
-
-.input::before {
-  z-index: 2;
-  content: url('../assets/search.svg');
-  position: absolute;
-  top: 15px;
-  left: 1rem;
-  pointer-events: none;
 }
-
-.input:focus::before > {
-  z-index: 3;
-  content: url('../assets/search-blue.svg');
-}
-
-/* input */
 
 .input {
   border-radius: 10px;
@@ -51,12 +40,15 @@
   line-height: 19.2px;
   display: inline-block;
   width: 100%;
+  transition: 0.3s ease-in-out;
 }
 
 .input::placeholder {
+  transition: 0.3s ease-in-out;
   color: rgba(164, 165, 167, 1);
 }
 .input:hover {
+  transition: 0.6s ease-in-out;
   background-color: #e6eaed;
   outline: 1px solid #004aa3;
 }

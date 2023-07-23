@@ -51,7 +51,7 @@ const ArticlePage: FC = () => {
   return (
     <>
       {isLoading ? (
-        <h1>LOADING...</h1>
+        <div className="preloader"></div>
       ) : error ? (
         <div>{error}</div>
       ) : selectedArticle ? (

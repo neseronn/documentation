@@ -81,7 +81,7 @@ const Instructions: React.FC = () => {
             <h1>Нуждаются в популяризации</h1>
 
             {isLoading ? (
-              <div>LOADING...</div>
+              <div className="preloader"></div>
             ) : error ? (
               <div>{error}</div>
             ) : articles ? (
