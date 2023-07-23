@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from '../styles/search.module.css';
 
 interface ISearchProps {
@@ -7,16 +7,18 @@ interface ISearchProps {
 }
 
 const Search: React.FC<ISearchProps> = ({ onChange, search }) => {
+  const [icon, changeIcon] = useState(style.gray_icon);
   return (
     <div className={style.search}>
-      {/* <div className={style.icon}></div> */}
-      {/* <input type="email" placeholder="email" id="email" required><label for="email" data-fon="✉" data-text="email">&nbsp;</label> */}
+      <div className={style.icon + ' ' + icon}></div>
       <input
         placeholder='Поиск'
         className={style.input}
         type='text'
-        id="search"
+        id='search'
         value={search}
+        onFocus={() => changeIcon(style.blue_icon)}
+        onBlur={() => changeIcon(style.gray_icon)}
         onChange={(e) => onChange(e)}
       />
     </div>
