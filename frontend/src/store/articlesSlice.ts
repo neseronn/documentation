@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 interface IArticlesState {
   articles: IArticle[];
-  selectedArticle: IArticle | null;
+  selectedArticle: IArticleFull | null;
   isLoading: boolean;
   error: null | string;
 }
@@ -37,7 +37,7 @@ export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
   }
 );
 
-export const fetchArticleById = createAsyncThunk<IArticle, number>(
+export const fetchArticleById = createAsyncThunk<IArticleFull, string | undefined>(
   'articles/fetchArticleById',
   async (id, thunkApi) => {
     try {
@@ -76,7 +76,7 @@ export const articlesSlice = createSlice({
       })
       .addCase(
         fetchArticleById.fulfilled,
-        (state, action: PayloadAction<IArticle>) => {
+        (state, action: PayloadAction<IArticleFull>) => {
           state.isLoading = false;
           state.selectedArticle = action.payload;
         }
@@ -84,7 +84,7 @@ export const articlesSlice = createSlice({
       .addCase(fetchArticleById.rejected, (state, action: any) => {
         state.isLoading = false;
         state.error = action.payload;
-        state.selectedArticle = {} as IArticle;
+        state.selectedArticle = {} as IArticleFull;
       });
   },
 });
