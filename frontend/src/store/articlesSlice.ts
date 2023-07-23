@@ -25,7 +25,7 @@ export const fetchArticles = createAsyncThunk<IArticle[], IParams>(
     const { category, tags } = args;
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/articles/?${
+        `http://127.0.0.1:8000/api/articles/?${
           category !== null ? `category=${category}` : ''
         }&${tags.length > 0 ? `tags=` + tags.join(',') : ''}`
       );
@@ -41,7 +41,7 @@ export const fetchArticleById = createAsyncThunk<IArticleFull, string | undefine
   'articles/fetchArticleById',
   async (id, thunkApi) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/articles/${id}`);
+      const response = await fetch(`http://127.0.0.1:8000/api/articles/${id}`);
       const data = await response.json();
       return data;
     } catch (error: any) {
