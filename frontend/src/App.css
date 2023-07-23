@@ -59,6 +59,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   row-gap: 10px;
+  column-gap: 10px;
 }
 
 .tag-btn {

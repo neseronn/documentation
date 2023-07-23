@@ -1,4 +1,4 @@
-li {
+.li {
   padding: 10px;
   color: #1f1f1f;
   font-size: 13px;
@@ -7,6 +7,7 @@ li {
   border-radius: 5px;
   cursor: pointer;
   width: 163px;
+  transition: 0.1s ease-in-out;
 }
 
 .categories {
@@ -20,9 +21,12 @@ li {
   color: #ffffff;
   background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
 }
-
-.hover {
+.li:hover {
   font-weight: 700;
+  color: #489bff;
+  /* background: #489aff38; */
+}
+
+.li.active:hover {
   color: #ffffff;
-  background: linear-gradient(138deg, #005ed0 0%, #489bff 100%);
 }

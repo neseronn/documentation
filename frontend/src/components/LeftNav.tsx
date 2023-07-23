@@ -24,7 +24,11 @@ const LeftNav: FC<INavProps> = React.memo(function Categories({
         {items.map((el) => (
           <li
             key={el.id}
-            className={activeItem === 'section' + el.id ? style.active : ''}
+            className={
+              style.li +
+              ' ' +
+              (activeItem === 'section' + el.id ? style.active : '')
+            }
             onClick={() => onClickItem('section' + el.id)}>
             {el.content_title}
           </li>
