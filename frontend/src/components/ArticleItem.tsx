@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Tag from './Tag';
 import style from '../styles/article-item.module.css';
+import { Link } from 'react-router-dom';
 
 interface IArticleItemProps {
   article: IArticle;
@@ -9,7 +10,9 @@ interface IArticleItemProps {
 const ArticleItem: FC<IArticleItemProps> = ({ article }: IArticleItemProps) => {
   return (
     <div className={style.articleItem}>
-      <h3 className={style.title}>{article.title}</h3>
+      <Link to={`/${article.id}`} className={style.title}>
+        {article.title}
+      </Link>
       <p className={style.description}>{article.decription}</p>
       <div className={style.bottom}>
         <div className={style.tags}>

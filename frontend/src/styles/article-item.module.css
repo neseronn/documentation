@@ -12,6 +12,8 @@
   line-height: 19.6px;
   letter-spacing: 0.7px;
   margin-bottom: 10px;
+  cursor: pointer;
+  
 }
 
 .description {

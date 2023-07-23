@@ -21,6 +21,7 @@ const ArticlePage: FC = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -30,7 +31,7 @@ const ArticlePage: FC = () => {
     console.log(sectionId);
     const sectionElement = document.getElementById(sectionId);
     if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
+      sectionElement.scrollIntoView({ block: 'center' });
       setActiveSection(sectionId);
     }
   };
@@ -40,7 +41,7 @@ const ArticlePage: FC = () => {
     let currentSection = '';
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      if (rect.top >= 0 && rect.top <= window.innerHeight * 0.5) {
+      if (rect.top >= 0 && rect.top <= window.innerHeight * 0.6) {
         currentSection = section.id;
       }
     });
