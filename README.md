@@ -30,6 +30,14 @@ poetry install
 poetry shell
 ```
 
+--> Build React project :
+```bash
+cd frontend
+npm install
+npm run build
+cd ..
+```
+
 #
 
 ### Running the App
